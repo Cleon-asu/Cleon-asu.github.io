@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Research Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-temp.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="cyber-background">
+        <div class="grid-lines"></div>
+        <div class="floating-particles"></div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">◉</span>
+                <span class="nav-title">Research Portal</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">
+                        <span class="nav-icon">▲</span>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <span class="nav-icon">◆</span>
+                        <span class="nav-text">Research</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#references" class="nav-link">
+                        <span class="nav-icon">◈</span>
+                        <span class="nav-text">References</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#video" class="nav-link">
+                        <span class="nav-icon">▶</span>
+                        <span class="nav-text">Video</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Virtual Robot Character -->
+    <div class="virtual-human-container">
+        <svg class="virtual-human" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Robot Body Structure -->
+            <g class="robot-body">
+                <!-- Main Body -->
+                <rect x="70" y="150" width="60" height="80" rx="8" fill="url(#bodyGradient)" stroke="#00FFFF" stroke-width="2"/>
+                
+                <!-- Chest Panel -->
+                <rect x="80" y="165" width="40" height="25" rx="4" fill="url(#panelGradient)" stroke="#00FF00" stroke-width="1"/>
+                
+                <!-- Body Panel Lines -->
+                <line x1="75" y1="175" x2="125" y2="175" stroke="#00FFFF" stroke-width="0.5" opacity="0.7"/>
+                <line x1="75" y1="185" x2="125" y2="185" stroke="#00FFFF" stroke-width="0.5" opacity="0.7"/>
+                <line x1="75" y1="195" x2="125" y2="195" stroke="#00FFFF" stroke-width="0.5" opacity="0.7"/>
+                
+                <!-- Power Core -->
+                <circle cx="100" cy="177" r="8" fill="#000000" stroke="#00FFFF" stroke-width="1"/>
+                <circle cx="100" cy="177" r="5" fill="url(#coreGradient)">
+                    <animate attributeName="fill" values="#00FFFF;#00FF00;#FF00FF;#00FFFF" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                
+                <!-- Side Panels -->
+                <rect x="65" y="160" width="8" height="30" rx="2" fill="url(#sideGradient)" stroke="#00FFFF" stroke-width="1"/>
+                <rect x="127" y="160" width="8" height="30" rx="2" fill="url(#sideGradient)" stroke="#00FFFF" stroke-width="1"/>
+                
+                <!-- Arms -->
+                <rect x="45" y="155" width="20" height="40" rx="6" fill="url(#armGradient)" stroke="#00FFFF" stroke-width="1.5"/>
+                <rect x="135" y="155" width="20" height="40" rx="6" fill="url(#armGradient)" stroke="#00FFFF" stroke-width="1.5"/>
+                
+                <!-- Arm Joints -->
+                <circle cx="55" cy="175" r="6" fill="url(#jointGradient)" stroke="#00FF00" stroke-width="1"/>
+                <circle cx="145" cy="175" r="6" fill="url(#jointGradient)" stroke="#00FF00" stroke-width="1"/>
+                
+                <!-- Hands -->
+                <circle cx="55" cy="200" r="8" fill="url(#handGradient)" stroke="#00FFFF" stroke-width="1"/>
+                <circle cx="145" cy="200" r="8" fill="url(#handGradient)" stroke="#00FFFF" stroke-width="1"/>
+                
+                <!-- Legs -->
+                <rect x="80" y="230" width="15" height="50" rx="4" fill="url(#legGradient)" stroke="#00FFFF" stroke-width="1.5"/>
+                <rect x="105" y="230" width="15" height="50" rx="4" fill="url(#legGradient)" stroke="#00FFFF" stroke-width="1.5"/>
+                
+                <!-- Feet -->
+                <ellipse cx="87" cy="285" rx="12" ry="6" fill="url(#footGradient)" stroke="#00FFFF" stroke-width="1"/>
+                <ellipse cx="113" cy="285" rx="12" ry="6" fill="url(#footGradient)" stroke="#00FFFF" stroke-width="1"/>
+            </g>
+
+            <!-- Robot Head (will rotate) -->
+            <g class="human-head robot-head" transform-origin="100 125">
+                <!-- Head Main Structure -->
+                <rect x="75" y="95" width="50" height="60" rx="12" fill="url(#headGradient)" stroke="#00FFFF" stroke-width="2"/>
+                
+                <!-- Head Top Panel -->
+                <rect x="80" y="100" width="40" height="15" rx="4" fill="url(#topPanelGradient)" stroke="#00FF00" stroke-width="1"/>
+                
+                <!-- Communication Antenna -->
+                <g class="robot-antenna" transform-origin="100 100">
+                    <line x1="100" y1="95" x2="100" y2="80" stroke="#FF00FF" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="100" cy="80" r="3" fill="#FF00FF">
+                        <animate attributeName="fill" values="#FF00FF;#00FFFF;#FF00FF" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="100" cy="80" r="8" fill="none" stroke="#FF00FF" stroke-width="0.5" opacity="0.3">
+                        <animate attributeName="r" values="8;15;8" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+                
+                <!-- Side Antennas -->
+                <line x1="75" y1="110" x2="65" y2="105" stroke="#00FFFF" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="125" y1="110" x2="135" y2="105" stroke="#00FFFF" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="65" cy="105" r="2" fill="#00FFFF">
+                    <animate attributeName="fill" values="#00FFFF;#00FF00;#00FFFF" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="135" cy="105" r="2" fill="#00FFFF">
+                    <animate attributeName="fill" values="#00FFFF;#00FF00;#00FFFF" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+
+                <!-- Robot Face Panel -->
+                <rect x="80" y="120" width="40" height="25" rx="6" fill="url(#faceGradient)" stroke="#00FFFF" stroke-width="1"/>
+                
+                <!-- Robot Eyes -->
+                <g class="human-eyes robot-eyes" transform-origin="100 130">
+                    <!-- Left Eye -->
+                    <circle cx="88" cy="130" r="8" fill="#000000" stroke="#00FFFF" stroke-width="1"/>
+                    <circle class="eye-pupil left-pupil robot-eye" cx="88" cy="130" r="6" fill="#00FFFF">
+                        <animate attributeName="fill" values="#00FFFF;#00FF00;#FF00FF;#00FFFF" dur="4s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="eye-iris left-iris" cx="88" cy="130" r="2" fill="#FFFFFF" opacity="0.9"/>
+                    <circle cx="88" cy="130" r="10" fill="none" stroke="#00FFFF" stroke-width="0.5" opacity="0.3">
+                        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- Right Eye -->
+                    <circle cx="112" cy="130" r="8" fill="#000000" stroke="#00FFFF" stroke-width="1"/>
+                    <circle class="eye-pupil right-pupil robot-eye" cx="112" cy="130" r="6" fill="#00FFFF">
+                        <animate attributeName="fill" values="#00FFFF;#00FF00;#FF00FF;#00FFFF" dur="4s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle class="eye-iris right-iris" cx="112" cy="130" r="2" fill="#FFFFFF" opacity="0.9"/>
+                    <circle cx="112" cy="130" r="10" fill="none" stroke="#00FFFF" stroke-width="0.5" opacity="0.3">
+                        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.2s" repeatCount="indefinite"/>
+                    </circle>
+                </g>
+                
+                <!-- Face Display Lines -->
+                <line x1="82" y1="140" x2="88" y2="140" stroke="#00FF00" stroke-width="1" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.8s" repeatCount="indefinite"/>
+                </line>
+                <line x1="112" y1="140" x2="118" y2="140" stroke="#00FF00" stroke-width="1" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.1s" repeatCount="indefinite"/>
+                </line>
+                
+                <!-- Mouth Display -->
+                <rect x="92" y="138" width="16" height="4" rx="2" fill="#000000" stroke="#00FFFF" stroke-width="0.5"/>
+                <rect x="94" y="139" width="12" height="2" rx="1" fill="#00FFFF" opacity="0.7">
+                    <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                
+                <!-- Head Detail Panels -->
+                <rect x="77" y="103" width="6" height="8" rx="1" fill="url(#detailGradient)" stroke="#FF00FF" stroke-width="0.5"/>
+                <rect x="117" y="103" width="6" height="8" rx="1" fill="url(#detailGradient)" stroke="#FF6600" stroke-width="0.5"/>
+                
+                <!-- Status LEDs -->
+                <circle cx="78" cy="107" r="1.5" fill="#FF00FF">
+                    <animate attributeName="fill" values="#FF00FF;#000000;#FF00FF" dur="1s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="122" cy="107" r="1.5" fill="#FF6600">
+                    <animate attributeName="fill" values="#FF6600;#000000;#FF6600" dur="1.2s" repeatCount="indefinite"/>
+                </circle>
+            </g>
+
+            <!-- Panel Lights -->
+            <g class="panel-lights">
+                <circle cx="68" cy="170" r="2" fill="#00FF00">
+                    <animate attributeName="fill" values="#00FF00;#000000;#00FF00" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="132" cy="170" r="2" fill="#00FF00">
+                    <animate attributeName="fill" values="#00FF00;#000000;#00FF00" dur="2.8s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="75" cy="185" r="1.5" fill="#FF00FF">
+                    <animate attributeName="fill" values="#FF00FF;#000000;#FF00FF" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="125" cy="185" r="1.5" fill="#FF00FF">
+                    <animate attributeName="fill" values="#FF00FF;#000000;#FF00FF" dur="2.1s" repeatCount="indefinite"/>
+                </circle>
+            </g>
+
+            <!-- Gradients and Filters -->
+            <defs>
+                <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#2a2a2a;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="headGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#505050;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#303030;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#202020;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="panelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#003030;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#001010;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="topPanelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#003000;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#001000;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="faceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#002020;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#000808;stop-opacity:1" />
+                </linearGradient>
+                <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#00FFFF;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                </radialGradient>
+                <linearGradient id="sideGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#353535;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#151515;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="armGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#454545;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#252525;stop-opacity:1" />
+                </linearGradient>
+                <radialGradient id="jointGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#00FF00;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#002000;stop-opacity:1" />
+                </radialGradient>
+                <radialGradient id="handGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#202020;stop-opacity:1" />
+                </radialGradient>
+                <linearGradient id="legGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#202020;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="footGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#505050;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#303030;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="detailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#300030;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#100010;stop-opacity:1" />
+                </linearGradient>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                <filter id="innerGlow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header Section -->
+        <header id="home" class="hero-section">
+            <div class="container">
+                <h1 class="cyber-title">
+                    <span class="glitch-text" >Research Portal</span>
+                </h1>
+                <p class="cyber-subtitle">Experimental Study - MindXR 2025</p>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">RESEARCH OVERVIEW</h2>
+                </div>
+                
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <h3>Research Title</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Do Humans Treat Artificially Intelligent Virtual Human Agents as Social Beings?</p>
+                    </div>
+                </div>
+
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <h3>Research Team</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Alexandre Rodrigues</strong><sup>1,2,3,4</sup>, <strong>Carlos Leon</strong><sup>1,2,3,4</sup>, <strong>Luna Maddalon</strong><sup>4,5</sup>, <strong>Timothy McMahan</strong><sup>6</sup> & <strong>Thomas D. Parsons</strong><sup>4</sup></p>
+                    </div>
+                </div>
+
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <h3>Institutional Affiliations</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><sup>1</sup> Universidade Lusófona, Portugal<br>
+                        <sup>2</sup> Universitat de Barcelona, Spain<br>
+                        <sup>3</sup> Université Paris Cité, France<br>
+                        <sup>4</sup> Computational Neuropsychology and Simulation (CNS) Laboratory, Arizona State University, Tempe, AZ 85004, USA<br>
+                        <sup>5</sup> Universitat Politècnica de València, Spain<br>
+                        <sup>6</sup> Department of Learning Technologies, University of North Texas, Denton, USA</p>
+                    </div>
+                </div>
+
+                <div class="cyber-card large-card">
+                    <div class="card-header">
+                        <h3>Funding Statement</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>This work was supported by the Congressionally Directed Medical Research Program (CDMRP) under grant FP00037824 {283632} and agreement no. PR221488 (W81XWH22PRMRPTTDA), with Principal Investigator Dr. Parsons.</p>
+                    </div>
+                </div>
+
+                <div class="cyber-card large-card">
+                    <div class="card-header">
+                        <h3>Acknowledgements</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>This work was conducted as part of the Erasmus Mundus program, funded by the European Commission. Special thanks to professors Thomas Parsons and Dr. Timothy McMahan for their mentorship and guidance throughout this project. We also appreciate the contributions of Luna Maddalon whose partnership and insights have been invaluable. Finally, we thank our families and friends for their continuous encouragement and support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references" class="section references-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">REFERENCES</h2>
+                </div>
+                
+                <div class="cyber-card large-card">
+                    <div class="card-header">
+                        <h3>APA Citations</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="references-list">
+                            <ol>
+                                <li >Parsons, T., Kenny, P., McMahan, T., Wilkerson, A., Pruiksma, K., & Taylor, D. (2023). Virtual Standardized Patients for Cognitive Behavioral Therapy Training: Description of Platform Architecture. <em>Annual Review of CyberTherapy and Telemedicine</em>, <em>21</em>, 164-169.</li>
+                                
+                                <li >Parsons, T., Gaggioli, A., & Riva, G. (2017). Virtual Reality for research in social neuroscience. <em>Brain Sciences</em>, <em>7</em>(4), 42. https://doi.org/10.3390/brainsci7040042</li>
+                                
+                                <li >Parsons, T. D. (2014). Virtual standardized patients for assessing the competencies of psychologists. In <em>Advances in information quality and management</em>, 6484–6492. https://doi.org/10.4018/978-1-4666-5888-2.ch637</li>
+                                
+                                <li >Alberts, L., Lyngs, U., & Van Kleek, M. (2024). Computers as Bad Social Actors: Dark Patterns and Anti-Patterns in Interfaces that Act Socially. <em>Proceedings of the ACM on Human-Computer Interaction</em>, <em>8</em>(CSCW1), 1–25. https://doi.org/10.1145/3653693</li>
+                                
+                                <li >Pentina, I., Hancock, T., & Xie, T. (2022). Exploring relationship development with social chatbots: A mixed-method study of replika. <em>Computers in Human Behavior</em>, <em>140</em>, 107600. https://doi.org/10.1016/j.chb.2022.107600</li>
+                                
+                                <li >Hong, J. (2023). Machines as Social Entities (MASE) scale: Validation of a new scale measuring beliefs in the sociality of intelligent machine agents. <em>Social Science Computer Review</em>, <em>42</em>(1), 65–83. https://doi.org/10.1177/08944393231167211</li>
+                                
+                                <li >Chu, V. C., Lucas, G. M., Lei, S., Mozgai, S., Khooshabeh, P., & Gratch, J. (2019). Emotion Regulation in the Prisoner's Dilemma: Effects of Reappraisal on behavioral measures and cardiovascular measures of challenge and threat. <em>Frontiers in Human Neuroscience</em>, <em>13</em>. https://doi.org/10.3389/fnhum.2019.00050</li>
+                                
+                                <li >Hoegen, R., Gratch, J., Parkinson, B., & Shore, D. (2019). Signals of Emotion Regulation in a Social Dilemma: Detection from Face and Context. In <em>2019 8th International Conference on Affective Computing and Intelligent Interaction (ACII)</em>, 1–7. https://doi.org/10.1109/acii.2019.8925478</li>
+                                
+                                <li >Stratou, G., Hoegen, R., Lucas, G., & Gratch, J. (2015). Emotional signaling in a social dilemma: An automatic analysis. In <em>Proceedings of the 2015 International Conference on Affective Computing and Intelligent Interaction (ACII)</em>, 180–186. https://doi.org/10.1109/acii.2015.7344569</li>
+                                
+                                <li >Brinke, L. T., Lee, J. J., & Carney, D. R. (2015). The physiology of (dis)honesty: does it impact health? <em>Current Opinion in Psychology</em>, <em>6</em>, 177–182. https://doi.org/10.1016/j.copsyc.2015.08.004</li>
+                                
+                                <li >Hristova, E., & Grinberg, M. (2011). Multi-Modal Analysis of Decision Making in the Prisoner's Dilemma Game. In <em>Neural Nets WIRN10</em>, 311-318. IOS Press.</li>
+                                
+                                <li >Tricomi, E., & Sullivan-Toole, H. (2015). Fairness and inequity aversion. In <em>Elsevier eBooks</em>, 3–8. https://doi.org/10.1016/b978-0-12-397025-1.00142-1</li>
+                                
+                                <li >Ahmad, M. I., Alzahrani, A., & Ahmad, S. M. (2024). Detecting Deception in Natural Environments Using Incremental Transfer Learning. In <em>Proceedings of the 26th International Conference on Multimodal Interaction</em>, 66–75. https://doi.org/10.1145/3678957.3685702</li>
+                                
+                                <li >Ao, L., Gao, Y., Yang, L., Du, X., Wang, H., & Liu, Y. (2023). Group environment modulates how third parties assess unfairly shared losses and unfairly shared gains: neural signatures from ERPs and EEG oscillations. <em>Journal of Clinical and Experimental Neuropsychology</em>, <em>45</em>(9), 840–854. https://doi.org/10.1080/13803395.2024.2313258</li>
+                                
+                                <li >Chen, Y., Lu, J., Wang, Y., Feng, Z., & Yuan, B. (2017). Social distance influences the outcome evaluation of cooperation and conflict: Evidence from event-related potentials. <em>Neuroscience Letters</em>, <em>647</em>, 78–84. https://doi.org/10.1016/j.neulet.2017.03.018</li>
+                                
+                                <li >Brinke, L. T., Lee, J. J., & Carney, D. R. (2019). Different physiological reactions when observing lies versus truths: Initial evidence and an intervention to enhance accuracy. <em>Journal of Personality and Social Psychology</em>, <em>117</em>(3), 560–578. https://doi.org/10.1037/pspi0000175</li>
+                                
+                                <li >Watanabe, K., Saijo, N., Minami, S., & Kashino, M. (2021b). The effects of competitive and interactive play on physiological state in professional esports players. <em>Heliyon</em>, <em>7</em>(4), e06844. https://doi.org/10.1016/j.heliyon.2021.e06844</li>
+                                
+                                <li >Astolfi, L., Cincotti, F., Mattia, D., De Vico Fallani, F., Salinari, S., Marciani, M., Wilke, C., Doud, A., Yuan, H., He, B., & Babiloni, F. (2009). Estimation of the cortical activity from simultaneous multi-subject recordings during the prisoner's dilemma. <em>Annual International Conference of the IEEE Engineering in Medicine and Biology Society</em>, 1937–1939. https://doi.org/10.1109/iembs.2009.5333456</li>
+                                
+                                <li >Balconi, M., & Vanutelli, M. E. (2017). Cooperation and Competition with Hyperscanning Methods: Review and Future Application to Emotion Domain. <em>Frontiers in Computational Neuroscience</em>, <em>11</em>. https://doi.org/10.3389/fncom.2017.00086</li>
+                                
+                                <li >Nderitu, J. H. (2023). Mental state adaptive interfaces as a remedy to the issue of long-term, continuous human machine interaction. <em>Journal of Robotics Spectrum</em>, 78–89. https://doi.org/10.53759/9852/jrs202301008</li>
+                                
+                                <li >Kyrlitsias, C., & Michael-Grigoriou, D. (2022). Social interaction with agents and avatars in immersive virtual environments: a survey. <em>Frontiers in Virtual Reality</em>, <em>2</em>. https://doi.org/10.3389/frvir.2021.786665</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video" class="section video-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">RESEARCH VIDEO</h2>
+                </div>
+                
+                <div class="cyber-card large-card">
+                    <div class="card-header">
+                        <h3>Presentation</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="video-placeholder">
+                            <div class="video-icon">▶</div>
+                            <p class="placeholder-text">Research Video - To Be Attached</p>
+                            <p class="video-description">Upload your research presentation or demonstration video here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

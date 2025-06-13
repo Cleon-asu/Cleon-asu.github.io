@@ -1,0 +1,49 @@
+
+/* References List Proper Indentation Fix */
+.references-list ol {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: reference-counter;
+}
+
+.references-list ol li {
+  counter-increment: reference-counter;
+  padding-left: 3em;
+  margin-bottom: 1.2em;
+  position: relative;
+  text-indent: 0 !important;
+  line-height: 1.6;
+}
+
+.references-list ol li::before {
+  content: counter(reference-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 500;
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 5px var(--cyber-cyan);
+  min-width: 2.5em;
+}
+
+/* Override any inline styles on list items */
+.references-list ol li[style] {
+  text-indent: 0 !important;
+  padding-left: 3em !important;
+}
+
+/* Ensure proper spacing for long references */
+.references-list ol li em {
+  font-style: italic;
+}
+
+.references-list ol li a {
+  color: var(--cyber-cyan);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.references-list ol li a:hover {
+  color: var(--cyber-green);
+  text-shadow: 0 0 3px var(--cyber-green);
+}
